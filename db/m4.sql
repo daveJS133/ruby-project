@@ -1,6 +1,6 @@
-IF EXISTS DROP TABLE users;
-IF EXISTS DROP TABLE accounts;
-IF EXISTS DROP TABLE transactions;
+DROP TABLE users;
+DROP TABLE accounts;
+DROP TABLE transactions;
 
 CREATE TABLE users(
 id SERIAL PRIMARY KEY,
