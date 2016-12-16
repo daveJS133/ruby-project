@@ -22,8 +22,10 @@ customer SERIAL4 references users(id)
 CREATE TABLE transactions(
 id SERIAL4, PRIMARY KEY,
 type VARCHAR(255),
-income MONEY,
-expeses MONEY
+merchant VARCHAR(255),
+tag VARCHAR(255),
+out BOOLEAN
+
 );
 
 
