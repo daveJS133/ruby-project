@@ -1,7 +1,7 @@
 require('sql_runner.rb')
 
 
-class Account
+class Transaction
 
   attr_reader :id, :type, :merchant, :out
   attr_accessor :tag
@@ -12,6 +12,7 @@ class Account
     @merchant = options['merchant']
     @tag = options['tag']
     @out = options['out']
+    @account = options['account']
   end
 
   def save()

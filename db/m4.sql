@@ -16,7 +16,7 @@ type VARCHAR(255),
 transactions SERIAL4 references transactions(id),
 income MONEY,
 expeses MONEY,
-customer SERIAL4 references users(id)
+user SERIAL4 references users(id)
 );
 
 CREATE TABLE transactions(

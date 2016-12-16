@@ -3,8 +3,8 @@ require('sql_runner.rb')
 
 class Account
 
-  attr_reader :id, :type
-  attr_accessor :transactions, :income, :expenses 
+  attr_reader :id, :type, :user, :income, :expenses 
+  attr_accessor :transactions
 
   def initialize
     @id = nil || options['id'].to_i 
@@ -12,6 +12,7 @@ class Account
     @transactions = options['transactions']
     @income = options['income']
     @expenses = options['expenses']
+    @user = options['user']
   end
 
   def save()
