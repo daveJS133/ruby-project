@@ -1,0 +1,8 @@
+
+<div class = "user_list">
+  <% for user in @users %>
+  <ul>
+  <li><a href='/user/<%= user.id %>/show'><%= user.name %></a></li>
+  </ul>
+  <% end %>
+</div>

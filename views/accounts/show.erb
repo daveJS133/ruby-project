@@ -1,0 +1,14 @@
+<div class = "account_list">
+  <% for account in @accounts %>
+  <ul>
+  <li><%= account.type%></li>
+  <li><%= account.income%></li>
+  <li><%= account.expenses%></li>
+  <li><%= account.balance%></li>
+  </ul>
+  <br>
+  <hr>
+  <br>
+  <% end %>
+</div>
+

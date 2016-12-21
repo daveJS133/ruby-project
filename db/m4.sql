@@ -5,18 +5,19 @@ DROP TABLE transactions;
 CREATE TABLE users(
 id SERIAL PRIMARY KEY,
 name VARCHAR(255),
-total_income MONEY,
-total_expeses MONEY
+total_income DECIMAL,
+total_expenses DECIMAL,
+total_balance DECIMAL
 );
 
 
 CREATE TABLE accounts(
 id SERIAL4 PRIMARY KEY,
-type VARCHAR(255),
-transactions SERIAL4 references transactions(id),
-income MONEY,
-expeses MONEY,
-user SERIAL4 references users(id)
+type VARCHAR(255),  
+-- income DECIMAL,
+-- expenses DECIMAL,
+user_id INT4 references users(id)
+-- balance DECIMAL
 );
 
 CREATE TABLE transactions(
@@ -24,8 +25,10 @@ id SERIAL4 PRIMARY KEY,
 type VARCHAR(255),
 merchant VARCHAR(255),
 tag VARCHAR(255),
-out BOOLEAN
-
+out BOOLEAN,
+amount DECIMAL,
+account_id INT4 references accounts(id),
+user_id INT4 references users(id)
 );
 
 

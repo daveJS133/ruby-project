@@ -1,0 +1,39 @@
+<div class = "action_list">
+  <% for transaction in @transactions %>
+  <ul>
+  <li><% if transaction.out == "t" then %>
+    Expense
+    <%elsif transaction.out == "f" then %>
+    Income
+    <%else%>
+    <%end%>
+      
+  </li>
+  <li><%= transaction.type %></li>
+  <li><%= transaction.merchant %></li>
+  <li><%= transaction.tag %></li>
+  <li><%= transaction.amount %></li>
+  </ul>
+  <% end %>
+</div>
+
+ <form action="/<%= @user.id %>/transactions" method="post">
+
+    <label>
+    Filter
+    <select name="filter">
+      <% for tag in @options[:tags] %>
+      <option value="<%= tag %>"><%= tag %></option>
+      <% end %>
+    </select>
+    <br>
+
+    <input class="btn btn-action" type='submit' value="filter">
+
+
+      </label>
+  </p>
+</form>
+
+<a href="/<% @user.id %>/transactions/new">Add Transaction</a>
+

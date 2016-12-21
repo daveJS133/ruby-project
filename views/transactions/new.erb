@@ -1,0 +1,43 @@
+<form action="/<%= @user.id %>/<%= @account.id%>/transactions/new" method="post">
+  <p>
+  Type your name:
+  </p>
+  <p>
+    <label>
+    Income / Expense:
+    <select name="out">
+      <% for outs in @options[:out] %>
+      <option value="<%= outs.id %>"><%= outs[outs.id] %></option>
+      <% end %>
+    </select>
+    <br>
+
+    Account
+    <select name="account_id">
+      <% for account in @accounts %>
+      <option value="<%= account.id %>"><%= account.type %></option>
+      <% end %>
+    </select>
+    <br>
+
+    Payment Method:
+    <select name="type">
+      <% for types in @options[:type] %>
+      <option value="<%= type.id %>"><%= type[type.id] %></option>
+      <% end %>
+    </select>
+    Merchant:
+    <input type = "text" name="merchant"><br>
+    Tag:
+    <select name="tag">
+      <% for tag in @options[:tags] %>
+      <option value="<%= tag %>"><%= tag %></option>
+      <% end %>
+    </select><br>
+    Value:
+      <input type="number" name="amount">
+
+      </label>
+  </p>
+</form>
+
