@@ -9,11 +9,11 @@ get '/:user_id/accounts' do
   erb ( :"accounts/index" )
 end
 
-get '/:user_id/:account_id/new' do
-  @user = User.find( :user )
-
-  erb(:"accounts/new")
-end
+# get '/:user_id/:account_id/new' do
+#   @user = User.find( :user_id )
+#   @account = Account.find(:account_id)
+#   erb(:"accounts/new")
+# end
 
 post '/:user_id/accounts' do
   account = Account.new(params)

@@ -18,7 +18,7 @@ class Transaction
   end
 
   def save(account, user)
-    sql = "INSERT INTO transactions (type, merchant, tag, out, account_id, user_id, amount) 
+    sql = "INSERT INTO transactions (type, merchant, tag, out, account, user, amount) 
     VALUES ('#{@type}', '#{@merchant}', '#{@tag}', #{@out}, #{account}, #{user}, #{@amount} )
     RETURNING *;"
 
@@ -36,13 +36,13 @@ class Transaction
 
   def self.get_transactions_filter( filter, id )
     filter ||= nil
-    sql = "SELECT * FROM transactions WHERE transactions.user_id = #{id} AND tag = '#{filter}';"
+    sql = "SELECT * FROM transactions WHERE user_id = #{id} AND tag = '#{filter}';"
     results = SqlRunner.run(sql) 
     return results.map { |pg| Transaction.new ( pg ) } 
   end
 
   def self.get_expenses( id )
-    sql = "SELECT amount FROM transactions WHERE transactions.user_id = #{id} AND out = True"
+    sql = "SELECT amount FROM transactions WHERE user_id = #{id} AND out = True"
     results = SqlRunner.run(sql)
     results = results.map { |pg| Transaction.new ( pg ) } 
     total = 0
@@ -55,7 +55,7 @@ class Transaction
 
   def self.get_incomes( id )
 
-    sql = "SELECT amount FROM transactions WHERE transactions.user_id = #{id} AND out = False"
+    sql = "SELECT amount FROM transactions WHERE user_id = #{id} AND out = False"
     results = SqlRunner.run(sql)
     results = results.map { |pg| Transaction.new ( pg ) } 
     total = 0

@@ -26,11 +26,11 @@ get '/new' do
 end
 
 
-get '/:user/:account/new' do
-  @user = User.find( :user )
-
-  erb(:"accounts/new")
-end
+# get '/:user_id/:account_id/new' do
+#   @user = User.find( params[:user_id] )
+#   @account = Account.find( params[:account_id] )
+#   erb(:"accounts/new")
+# end
 
 
 post '/accounts' do

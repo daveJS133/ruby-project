@@ -26,19 +26,19 @@ class Account
   end
 
   def self.get_accounts( id )
-    sql = "SELECT * FROM accounts WHERE user_id = #{id}"
+    sql = "SELECT * FROM accounts WHERE @user_id = #{id}"
     results = SqlRunner.run(sql)
-    return results.map { |pg| Account.new ( pg )}
+    return results.map { |pg| Account.new( pg )}
   end
 
   def self.find( id )
-    sql = "SELECT * FROM accounts WHERE user_id=#{id}"
+    sql = "SELECT * FROM accounts WHERE @user_id=#{id}"
     results = SqlRunner.run( sql )
     return Accounts.new( results.first )
   end
 
   def get_account_transactions(id )
-    sql = "SELECT * FROM transactions WHERE transactions.account_id = #{id}"
+    sql = "SELECT * FROM transactions WHERE account_id = #{id}"
     results = SqlRunner.run(sql)
     return results.map { |pg| Transaction.new ( pg )}
   end

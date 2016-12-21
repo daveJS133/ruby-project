@@ -1,4 +1,4 @@
-<form action="/<%= @user.id %>/<%= @account.id%>/transactions/new" method="post">
+<form action="/<%= @user.id %>/transactions/new" method="post">
   <p>
   Type your name:
   </p>
@@ -7,7 +7,7 @@
     Income / Expense:
     <select name="out">
       <% for outs in @options[:out] %>
-      <option value="<%= outs.id %>"><%= outs[outs.id] %></option>
+      <option ><%= outs %></option>
       <% end %>
     </select>
     <br>
@@ -23,7 +23,7 @@
     Payment Method:
     <select name="type">
       <% for types in @options[:type] %>
-      <option value="<%= type.id %>"><%= type[type.id] %></option>
+      <option <%= types%></option>
       <% end %>
     </select>
     Merchant:

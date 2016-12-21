@@ -24,14 +24,14 @@ post '/:user_id/transactions' do
   erb ( :"transactions/index" )
 end
 
-get ':user_id/transactions/new' do
-  @user = User.find( params[:user_id] )
+get '/:user_id/transactions/new' do
+  @user = User.find(params[:user_id])
   @accounts = Account.get_accounts(@user.id)
   @options = Options.all
   erb(:"transactions/new")
 end
 
-post ':user_id/:account_id/transactions' do
+post '/:user_id/transactions/new' do
   @user = User.find( params[:user_id] )
   
   @options = Options.all
