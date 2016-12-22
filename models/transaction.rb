@@ -18,12 +18,13 @@ class Transaction
   end
 
   def save(account, user)
-    sql = "INSERT INTO transactions (type, merchant, tag, out, account, user, amount) 
-    VALUES ('#{@type}', '#{@merchant}', '#{@tag}', #{@out}, #{account}, #{user}, #{@amount} )
+    sql = "INSERT INTO transactions (type, merchant, tag, out, account_id, user_id, amount) 
+    VALUES ('#{@type}', '#{@merchant}', '#{@tag}', '#{@out}', #{account}, #{user}, #{@amount} )
     RETURNING *;"
 
     results = SqlRunner.run(sql)
     @id = results[0]['id'].to_i
+    User.find(user).balance
   end
 
   
@@ -42,12 +43,13 @@ class Transaction
   end
 
   def self.get_expenses( id )
-    sql = "SELECT amount FROM transactions WHERE user_id = #{id} AND out = True"
+    sql = "SELECT amount FROM transactions WHERE user_id = #{id} AND out = 'Expense'"
     results = SqlRunner.run(sql)
     results = results.map { |pg| Transaction.new ( pg ) } 
     total = 0
     for transaction in results
       total += transaction.amount.to_f
+
     end
     return total
 
@@ -55,7 +57,7 @@ class Transaction
 
   def self.get_incomes( id )
 
-    sql = "SELECT amount FROM transactions WHERE user_id = #{id} AND out = False"
+    sql = "SELECT amount FROM transactions WHERE user_id = #{id} AND out = 'Income'"
     results = SqlRunner.run(sql)
     results = results.map { |pg| Transaction.new ( pg ) } 
     total = 0

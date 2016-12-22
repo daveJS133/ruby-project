@@ -25,7 +25,7 @@ id SERIAL4 PRIMARY KEY,
 type VARCHAR(255),
 merchant VARCHAR(255),
 tag VARCHAR(255),
-out BOOLEAN,
+out VARCHAR(255),
 amount DECIMAL,
 account_id INT4 references accounts(id),
 user_id INT4 references users(id)

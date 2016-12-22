@@ -1,5 +1,9 @@
 
-<div class = "user_list">
+<div class = "content_list">
+<h1>Welcome</h1>
+<p>Please select your user:</p>
+<br>
+<br>
   <% for user in @users %>
   <ul>
   <li><a href='/user/<%= user.id %>/show'><%= user.name %></a></li>

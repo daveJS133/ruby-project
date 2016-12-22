@@ -1,13 +1,11 @@
+<div class="content_list">
 <p><%=@user.name%></p>
-<p>Income</p>
-<p><%=@user.total_income%></p>
-<p>Expenditure</p>
-<p><%=@user.total_expenses%></p>
-<p>Balance</p>
-<p><%=@user.total_balance%></p>
+<p>Income: £<%=@user.total_income%></p>
+<p>Expenditure: £<%=@user.total_expenses%></p>
+<p>Balance: £<%=@user.total_balance%></p>
 
 <nav>
 <li><a href="/<%= @user.id %>/transactions">View Transactions</a></li>
 <li><a href="/<%= @user.id %>/accounts">View Accounts</a></li>
 </nav>
-
+</div>

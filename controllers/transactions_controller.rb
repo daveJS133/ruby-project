@@ -35,7 +35,8 @@ post '/:user_id/transactions/new' do
   @user = User.find( params[:user_id] )
   
   @options = Options.all
+
   @transaction = Transaction.new(params)
-  @transaction.save(params[:user_id, :account_id])
-  redirect to("/:user/transactions")
+  @transaction.save(params[:account_id], params[:user_id])
+  redirect to("/#{params[:user_id]}/transactions")
 end

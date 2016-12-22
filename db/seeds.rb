@@ -3,10 +3,9 @@ require_relative( '../models/account.rb' )
 require_relative( '../models/transaction.rb' )
 require('pry')
 
-Transaction.delete_all
-Account.delete_all
 User.delete_all
-
+Account.delete_all
+Transaction.delete_all
 
 
 user1 = User.new({
@@ -37,7 +36,7 @@ transaction1 = Transaction.new({
   'type' => 'debit',
   'merchant' => 'Tesco',
   'tag' => 'Food',
-  'out' => TRUE,
+  'out' => "Expense",
   'amount' => 50
 
 

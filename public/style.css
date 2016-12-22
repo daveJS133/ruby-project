@@ -1,0 +1,84 @@
+body {
+  background-color: #323232;
+  font-family: sans-serif;
+  width:100%;
+  color:#30AACC;
+ 
+}
+
+form {
+  padding-bottom: 20px;
+}
+input, select {
+border: 1px solid white
+}
+
+input:hover, select:hover {
+border: 1px solid #CC6030
+}
+
+.labels, .inputs{
+  display: inline-block;
+  width: 35%;
+  text-align:left;
+}
+
+select, input[type=text],input[type=number]  {
+  width: 100%
+}
+
+
+ul{
+  list-style-type: none;
+  padding: 0px;
+}
+
+.content_list{
+  border:   1px solid #30AACC ;
+  align-self: center;
+max-width: 33%;
+margin: auto;
+text-align: center;
+}
+
+p{
+  color: white;
+}
+
+a{
+
+color:#30AACC;
+text-decoration: underline;
+}
+
+nav{
+  padding-bottom: 20px;
+  list-style-type: none;
+}
+
+li{
+  color: white;
+
+}
+
+@media all and (max-width: 1200px) {
+  .content_list{
+    max-width: 50%;
+  }
+
+}
+
+@media all and (max-width: 800px) {
+  .content_list{
+    max-width: 80%;
+  }
+
+}
+
+@media all and (max-width: 500px) {
+  .content_list{
+    max-width: 90%;
+  }
+
+}
+

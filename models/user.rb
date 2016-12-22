@@ -42,18 +42,21 @@ class User
 
   def total_expense()
     @total_expenses = Transaction.get_expenses(@id)
-    balance()
+   
     return @total_expenses
   end
 
   def total_income()
    @total_income = Transaction.get_incomes(@id)
-   balance()
+   
    return @total_income
   end
 
   def balance()
+    total_income()
+    total_expense()
     @balance = @total_income.to_f - @total_expenses.to_f
+    @user.save()
     return @balance
   end
 

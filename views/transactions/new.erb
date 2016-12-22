@@ -1,43 +1,56 @@
-<form action="/<%= @user.id %>/transactions/new" method="post">
-  <p>
-  Type your name:
-  </p>
-  <p>
-    <label>
-    Income / Expense:
-    <select name="out">
+<div class="content_list">
+  <h1>Add A Transaction</h1>
+  <form  action="/<%= @user.id %>/transactions/new" method="post">
+    <div class="labels"><ul>
+      <li><label>Income / Expense:</label></li>
+      <li><label>Account</label></li>
+      <li><label>Payment Method:</label></li>
+      <li><label>Merchant:</label></li>
+      <li><label>Tag:</label></li>
+      <li><label>Value:</label></li>
+    </ul></div>
+
+
+    <div class="inputs"><ul>
+     <li><select name="out">
       <% for outs in @options[:out] %>
       <option ><%= outs %></option>
       <% end %>
     </select>
-    <br>
+  </li>
 
-    Account
-    <select name="account_id">
-      <% for account in @accounts %>
-      <option value="<%= account.id %>"><%= account.type %></option>
-      <% end %>
-    </select>
-    <br>
+  <li><select name="account_id">
+    <% for account in @accounts %>
+    <option value="<%= account.id %>"><%= account.type %></option>
+    <% end %>
+  </select> </li>
 
-    Payment Method:
-    <select name="type">
-      <% for types in @options[:type] %>
-      <option <%= types%></option>
-      <% end %>
-    </select>
-    Merchant:
-    <input type = "text" name="merchant"><br>
-    Tag:
-    <select name="tag">
-      <% for tag in @options[:tags] %>
-      <option value="<%= tag %>"><%= tag %></option>
-      <% end %>
-    </select><br>
-    Value:
-      <input type="number" name="amount">
 
-      </label>
-  </p>
-</form>
+
+  <li><select name="type">
+    <% for type in @options[:type] %>
+    <option value="<%= type %>"><%= type %></option>
+    <% end %>
+    </select> </li>
+
+
+  <li><input type = "text" name="merchant"> </li>
+
+
+  <li><select name="tag">
+    <% for tag in @options[:tags] %>
+    <option value="<%= tag %>"><%= tag %></option>
+    <% end %>
+  </select> </li>
+
+
+  <li><input type="number" name="amount"></li>
+
+  </ul>
+  </div>
+  <br><br>
+  <input class="btn btn--action" type='submit' value="Submit"></form>
+
+
+
 
