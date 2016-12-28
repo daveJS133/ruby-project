@@ -8,6 +8,7 @@ body {
 
 form {
   padding-bottom: 20px;
+
 }
 input, select {
   border: 1px solid white
@@ -24,8 +25,13 @@ input:hover, select:hover {
   text-align:left;
 }
 
+.inputs input , .inputs select, .inputs input[type=text], .inputs input[type=number] {
+  width: 80%;
+}
+
 select, input[type=text],input[type=number]  {
-  width: 100%
+  width: 33%;
+
 }
 
 
