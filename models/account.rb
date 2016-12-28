@@ -43,9 +43,26 @@ class Account
     return results.map { |pg| Transaction.new ( pg )}
   end
 
-  def update()
+  # def total_expense()
+  #   @expenses = Transaction.get_account_expenses(@id)
+   
+  #   return @total_expenses
+  # end
 
-  end
+  # def total_income()
+  #  @income = Transaction.get_account_incomes(@id)
+   
+  #  return @total_income
+  # end
+
+  # def balance()
+  #   total_income()
+  #   total_expense()
+    
+  #   @balance = @income.to_f - @expenses.to_f
+  
+  #   return @balance
+  # end
 
 
     def self.destroy(id)

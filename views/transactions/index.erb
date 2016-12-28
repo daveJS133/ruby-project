@@ -1,12 +1,21 @@
 <div class = "content_list">
   <% for transaction in @transactions %>
-  <ul>
+  <div class="list">
+  <ul class="left-list">
   <li><%= transaction.out %></li>
-  <li><%= transaction.type %></li>
   <li><%= transaction.merchant %></li>
+  </ul>
+
+  <ul class="right-list">
+  <li><%= transaction.type %></li>
   <li><%= transaction.tag %></li>
   <li>£<%= transaction.amount %></li>
   </ul>
+  </div>
+  <form action="<%=transaction.id%>/transactions/delete" method="post">
+
+
+    <input class="btn btn--action" type='submit' value="Delete"></form>
   <% end %>
 
 
@@ -14,7 +23,7 @@
 
     <label>
     Filter
-    <select name="filter">
+    <select id = "filter" name="filter">
       <% for tag in @options[:tags] %>
       <option value="<%= tag %>"><%= tag %></option>
       <% end %>

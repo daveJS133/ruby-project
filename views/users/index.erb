@@ -1,12 +1,22 @@
 
 <div class = "content_list">
-<h1>Welcome</h1>
-<p>Please select your user:</p>
-<br>
-<br>
+  <h1>The Mony Meickles Muckle Mak'r</h1>
+  <h2>Welcome</h2>
+  <p>Please select your user:</p>
+  <br>
+  <br>
   <% for user in @users %>
-  <ul>
-  <li><a href='/user/<%= user.id %>/show'><%= user.name %></a></li>
-  </ul>
+  <div class="list">
+    <ul>
+      <li><a href='/user/<%=user.id%>/show'><%= user.name %></a></li>
+    </ul>
+    <form action="<%=user.id%>/delete" method="post">
+
+
+      <input class="btn btn--action" type='submit' value="Delete">
+    </form>
+
+  </div>
   <% end %>
+  <a href="/new">Add User</a>
 </div>

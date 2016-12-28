@@ -16,7 +16,7 @@ id SERIAL4 PRIMARY KEY,
 type VARCHAR(255),  
 -- income DECIMAL,
 -- expenses DECIMAL,
-user_id INT4 references users(id)
+user_id INT4 references users(id) ON DELETE CASCADE
 -- balance DECIMAL
 );
 
@@ -27,8 +27,10 @@ merchant VARCHAR(255),
 tag VARCHAR(255),
 out VARCHAR(255),
 amount DECIMAL,
-account_id INT4 references accounts(id),
-user_id INT4 references users(id)
+trans_date date,
+account_id INT4 references accounts(id) ON DELETE CASCADE,
+user_id INT4 references users(id) ON DELETE CASCADE
+
 );
 
 

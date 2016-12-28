@@ -40,3 +40,8 @@ post '/:user_id/transactions/new' do
   @transaction.save(params[:account_id], params[:user_id])
   redirect to("/#{params[:user_id]}/transactions")
 end
+
+post '/:user_id/:transaction_id/transactions/delete' do
+  Transaction.destroy(params[:transaction_id])
+  redirect to("/#{params[:user_id]}/transactions")
+end

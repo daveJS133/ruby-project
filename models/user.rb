@@ -55,9 +55,17 @@ class User
   def balance()
     total_income()
     total_expense()
-    @balance = @total_income.to_f - @total_expenses.to_f
-    @user.save()
-    return @balance
+    
+    @total_balance = @total_income.to_f - @total_expenses.to_f
+ 
+    return @total_balance
+  end
+
+  def self.destroy(id)
+    sql = "DELETE  FROM transactions WHERE user_id = #{id}; 
+    DELETE FROM accounts WHERE user_id = #{id};
+     DELETE  FROM users WHERE id = #{id}"
+    SqlRunner.run( sql )
   end
 
 end

@@ -1,11 +1,12 @@
 <div class = "content_list">
   <% for account in @accounts %>
   <ul>
-  <li><%= account.type%></li>
-  <li><%= account.balance%></li>
+  <a href=""><li><%= account.type%></li>
+  </a>
   </ul>
   <br>
   <hr>
   <br>
   <% end %>
+  <a href="account/new">Add Account</a>
 </div>

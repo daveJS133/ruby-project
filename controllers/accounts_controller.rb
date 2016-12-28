@@ -6,12 +6,13 @@ require_relative( '../models/user.rb' )
 
 get '/:user_id/accounts' do
   @accounts = Account.get_accounts(params[:user_id])
-  erb ( :"accounts/index" )
+  # @balance = Account.balance()
+  erb ( :"/accounts/index" )
 end
 
-# get '/:user_id/:account_id/new' do
+# get '/:user_id/new' do
 #   @user = User.find( :user_id )
-#   @account = Account.find(:account_id)
+# 
 #   erb(:"accounts/new")
 # end
 
@@ -19,6 +20,12 @@ post '/:user_id/accounts' do
   account = Account.new(params)
   account.save
   redirect to("/:user_id/accounts")
+end
+
+get '/:user_id/ ' do
+  @accounts = Account.get_accounts(params[:user_id])
+  # @balance = Account.balance()
+  erb ( :"accounts/index" )
 end
 
 post '/accounts/:id/delete' do
